@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yucatán: Descubre sin Límites</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .header {
+            background-color: #008080;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #FFD700;
+        }
+        nav a {
+            background-color: #d19595;
+            color: #333;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #b37d7d;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        .content h2 {
+            color: #008080;
+        }
+    </style>
+    <script>
+        function showPlace(placeId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach((section) => section.classList.remove('active'));
+            document.getElementById(placeId).classList.add('active');
+        }
+        window.onload = function() {
+            showPlace('inicio');
+        };
+    </script>
+</head>
+<body>
+    <header class="header">
+        <h1>Bienvenido a Yucatán</h1>
+        <nav>
+            <a href="#" onclick="showPlace('inicio')">Inicio</a>
+            <a href="#" onclick="showPlace('comentarios')">Comentarios</a>
+            <a href="#" onclick="showPlace('lugares')">Lugares</a>
+            <a href="#" onclick="showPlace('contacto')">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="content active">
+        <h2>Bienvenidos al Turismo en Yucatán</h2>
+        <p>Descubre la belleza y la historia de Yucatán.</p>
+    </section>
+
+   <!-- seccion de lugares -->
+   <section id="lugares" class="content">
+    <h2>Lugares Disponibles</h2>
+   <form action="lugares.php" method="post" style="margin-top: 10px;">
+    </form>
+<form action="lugares_cli.php" method="post">
+        <button type="submit">Entrar</button>
+    </form>
+    </section>
+
+   <!-- Sección de Comentarios -->
+   <section id="comentarios" class="content">
+    <h2>Comentarios</h2>
+<form action="comentario-cli.php" method="post">
+<button type="submit"">Entrar</button>
+</section>
+</body>
+</html>
